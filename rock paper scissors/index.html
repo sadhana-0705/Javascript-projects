@@ -2,39 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>rock paper scissors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <h1>Rock Paper scissors</h1>
+
+    <h1>Rock Paper Scissors</h1>
+
     <div class="game">
+
         <div class="choice" id="rock">
-            <img src="./rock.jpg">
-        </div>
-        <div class="choice" id="paper">
-            <img src="./paper.jpg">
-        </div>
-        <div class="choice" id="scissors">
-            <img src="./scissors (2).jpg">
-        </div>
-    </div>
-        <div class="score-board">
-            <div class="score">
-                <p id="user">0</p>
-                <p>You</p>
-            </div>
-            <div class="score">
-                <p id="comp">0</p>
-                <p>Computer</p>
-            </div>
+            <img src="./rock.jpg" alt="Rock">
         </div>
 
-        <div class="msg-container">
-            <p id="msg">play your move</p>
+        <div class="choice" id="paper">
+            <img src="./paper.jpg" alt="Paper">
         </div>
-        <script src="app.js"></script>
-    
-    
+
+        <div class="choice" id="scissors">
+            <img src="./scissors (2).jpg" alt="Scissors">
+        </div>
+
+    </div>
+
+    <div class="score-board">
+
+        <div class="score">
+            <p id="user">0</p>
+            <p>You</p>
+        </div>
+
+        <div class="score">
+            <p id="comp">0</p>
+            <p>Computer</p>
+        </div>
+
+    </div>
+
+    <div class="msg-container">
+
+        <p id="msg">Play your move</p>
+
+        <button id="clear">Clear Game</button>
+
+    </div>
+
+    <script src="app.js"></script>
+
 </body>
 </html>
