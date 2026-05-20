@@ -1,52 +1,97 @@
-let choices=document.querySelectorAll(".choice");
-let userscore=0;
-let compscore=0;
-const msg=document.querySelector("#msg");
+let choices = document.querySelectorAll(".choice");
+
+let userscore = 0;
+let compscore = 0;
+
+const msg = document.querySelector("#msg");
 
 choices.forEach((choice) => {
-    choice.addEventListener("click",() => {
-        const userchoice=choice.getAttribute("id");
-        console.log("button is clicked",userchoice);
+
+    choice.addEventListener("click", () => {
+
+        const userchoice = choice.getAttribute("id");
+
+        console.log("Button clicked:", userchoice);
+
         decisionmaker(userchoice);
-        
 
-    })
-})
-const decisionmaker=(userchoice) =>
-{
-    console.log("user choice is:",userchoice);
-    const computerchoice=compchoice();
-    console.log("computer choice is ",computerchoice);
-    if(userchoice==computerchoice){
-        console.log("game is draw");
-        msg.innerText="game is drawn";
+    });
+
+});
+
+const decisionmaker = (userchoice) => {
+
+    console.log("User choice:", userchoice);
+
+    const computerchoice = compchoice();
+
+    console.log("Computer choice:", computerchoice);
+
+    // Draw condition
+    if (userchoice === computerchoice) {
+
+        console.log("Game is draw");
+
+        msg.innerText = "Game Drawn!";
+
     }
-    else if(userchoice=="rock" && computerchoice=="paper"||userchoice=="paper"&&computerchoice=="scissors"){
-        console.log("computer wins");
+
+    // Computer wins
+    else if (
+        (userchoice === "rock" && computerchoice === "paper") ||
+        (userchoice === "paper" && computerchoice === "scissors") ||
+        (userchoice === "scissors" && computerchoice === "rock")
+    ) {
+
+        console.log("Computer wins");
+
         compscore++;
-        const compid=document.querySelector("#comp");
-        compid.innerText=compscore;
-        msg.innerText="you lose";
+
+        document.querySelector("#comp").innerText = compscore;
+
+        msg.innerText = `You Lose! ${computerchoice} beats ${userchoice}`;
+
     }
-        
+
+    // User wins
     else {
-        console.log("user wins");
-        userscore++;  
-        const userid=document.querySelector("#user");
-        userid.innerText=userscore;
-        msg.innerText="you win";
-        
+
+        console.log("User wins");
+
+        userscore++;
+
+        document.querySelector("#user").innerText = userscore;
+
+        msg.innerText = `You Win! ${userchoice} beats ${computerchoice}`;
+
     }
-}
-        
-    
 
-const compchoice=() =>
-{
-    const array=["rock","paper","scissors"];
-    const randind=Math.floor(Math.random()*3);
-     return array[randind];
+};
 
-}
+const compchoice = () => {
 
+    const array = ["rock", "paper", "scissors"];
+
+    const randind = Math.floor(Math.random() * 3);
+
+    return array[randind];
+
+};
+
+// Clear Button
+
+const clearbtn = document.querySelector("#clear");
+
+clearbtn.addEventListener("click", () => {
+
+    userscore = 0;
+    compscore = 0;
+
+    document.querySelector("#user").innerText = userscore;
+
+    document.querySelector("#comp").innerText = compscore;
+
+    msg.innerText = "Play your move";
+
+});
 
